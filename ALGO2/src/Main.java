@@ -1,14 +1,14 @@
 public class Main {
     public static void main(String[] args) {
-        int[] arr = new int[]{12, 14, 16, 19, 21, 32, 32, 32, 32, 32, 33, 56, 60, 62, 69, 72};
-        System.out.println(biggersize(32, arr));
-        System.out.println(biggersize(60, arr));
+        int[] arr = new int[]{14, 16, 19, 32, 32, 32, 56, 69, 72};
+        System.out.println(larger(32, arr));
+        System.out.println(larger(60, arr));
     }
 
-    public static int biggersize(int newBook, int[] arr) {
+    public static int larger(int newBook, int[] arr) {
         int left = 0;
         int right = arr.length - 1;
-        int index = 0;
+        int index = arr.length;
         while (left < right) {
             int middle = (left + right) / 2;
             if(arr[middle] <= newBook && arr[middle +1] > newBook) {
