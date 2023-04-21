@@ -11,14 +11,13 @@ public class Main {
         int index = arr.length;
         while (left < right) {
             int middle = (left + right) / 2;
-            if(arr[middle] <= newBook && arr[middle +1] > newBook) {
+            if (arr[middle] <= newBook && arr[middle + 1] > newBook) {
                 index = middle + 1;
                 break;
             }
             if (arr[middle] > newBook && arr[middle - 1] <= newBook) {
                 index = middle;
                 break;
-
             } else if (arr[middle] == newBook) {
                 left = middle + 1;
             } else if (arr[middle] < newBook) {
