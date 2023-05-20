@@ -2,53 +2,65 @@ public class Main {
     public static void main(String[] args) {
         Stack stack = new Stack();
         stack.printme();
+        System.out.println("Добавим 0");
         stack.push(0);
         stack.printme();
+        System.out.println("Добавим 1");
         stack.push(1);
         stack.printme();
+        System.out.println("Добавим 2");
         stack.push(2);
         stack.printme();
+        System.out.println("Добавим 3");
         stack.push(3);
         stack.printme();
+        System.out.println("Добавим 4");
         stack.push(4);
         stack.printme();
+        System.out.println("Добавим 5");
         stack.push(5);
-        stack = stack.reverse();
         stack.printme();
-   /*     stack.printme();
-        stack.reverse();
+        System.out.println("Снимем со стека");
         System.out.println(stack.pop());
         stack.printme();
+        System.out.println("Снимем со стека");
         System.out.println(stack.pop());
         stack.printme();
+        System.out.println("Ревёрс!");
+        stack.reverse(stack);
+        stack.printme();
+        System.out.println("Снимем со стека");
         System.out.println(stack.pop());
         stack.printme();
+        System.out.println("Снимем со стека");
         System.out.println(stack.pop());
         stack.printme();
+        System.out.println("Ревёрс!");
+        stack.reverse(stack);
+        stack.printme();
+        System.out.println("Снимем со стека");
+        System.out.println(stack.pop());
+        stack.printme();        System.out.println("Снимем со стека");
         System.out.println(stack.pop());
         stack.printme();
-        System.out.println(stack.pop());
-        stack.printme();
-        */
     }
 
     public static class Stack {
         private Node head;
-        private Node tail;
+
 
         public void push (int value) {
             if (head == null) {
                 head = new Node(value, null);
-                tail = head;
             } else {
                 head = new Node(value, head);
             }
         }
 
-        public int pop () {
-            int value = 0;
+        public Integer pop () {
+            int value;
             if (head == null) {
-                System.out.println("Нет элементов!"); // TODO подумать, нихрена не работает.
+                return null;
             } else {
                 value = head.value;
                 head = head.prev;
@@ -71,42 +83,28 @@ public class Main {
                 System.out.println();
             }
         }
-        public Stack reverse () {
-            Stack reversed_stack = new Stack();
-            if (head == null) {
-                return reversed_stack;
-            } else {
-                Headtail headtail = reversed_head(this.head);
-                reversed_stack.head = headtail.head;
-                return reversed_stack;}
-
-        }
-
-        public Headtail reversed_head (Node node) {
-            Node new_node = new Node(node.value, null);
-            if (node.prev == null) {
-                return new Headtail(new_node, new_node);
-            } else {
-                Headtail headtail = reversed_head(node.prev);
-                tail.prev = new_node;
-                return headtail;
+        private void reverse (Stack stack) {
+            if (stack.head == null) {
+                return;
             }
+            int top = stack.pop();
+            reverse(stack);
+            insertBottom(stack,top);
         }
-
-        public static class Headtail {
-            public Node head;
-            public Node tail;
-
-            public Headtail(Node head, Node tail) {
-                this.head = head;
-                this.tail = tail;
+        private void insertBottom(Stack stack, int value) {
+            if (stack.head == null) {
+                stack.push(value);
+            } else {
+                int top = stack.pop();
+                insertBottom(stack, value);
+                stack.push(top);
             }
         }
     }
 
     public static class Node {
         private final int value;
-        private Node prev;
+        private final Node prev;
 
         public Node(int value, Node prev) {
             this.value = value;
