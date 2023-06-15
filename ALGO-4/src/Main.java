@@ -1,48 +1,48 @@
 public class Main {
     public static void main(String[] args) {
         Stack stack = new Stack();
-        stack.printme();
+        stack.printMe();
         System.out.println("Добавим 0");
         stack.push(0);
-        stack.printme();
+        stack.printMe();
         System.out.println("Добавим 1");
         stack.push(1);
-        stack.printme();
+        stack.printMe();
         System.out.println("Добавим 2");
         stack.push(2);
-        stack.printme();
+        stack.printMe();
         System.out.println("Добавим 3");
         stack.push(3);
-        stack.printme();
+        stack.printMe();
         System.out.println("Добавим 4");
         stack.push(4);
-        stack.printme();
+        stack.printMe();
         System.out.println("Добавим 5");
         stack.push(5);
-        stack.printme();
+        stack.printMe();
         System.out.println("Снимем со стека");
         System.out.println(stack.pop());
-        stack.printme();
+        stack.printMe();
         System.out.println("Снимем со стека");
         System.out.println(stack.pop());
-        stack.printme();
+        stack.printMe();
         System.out.println("Ревёрс!");
         stack.reverse(stack);
-        stack.printme();
+        stack.printMe();
         System.out.println("Снимем со стека");
         System.out.println(stack.pop());
-        stack.printme();
+        stack.printMe();
         System.out.println("Снимем со стека");
         System.out.println(stack.pop());
-        stack.printme();
+        stack.printMe();
         System.out.println("Ревёрс!");
         stack.reverse(stack);
-        stack.printme();
+        stack.printMe();
         System.out.println("Снимем со стека");
         System.out.println(stack.pop());
-        stack.printme();        System.out.println("Снимем со стека");
+        stack.printMe();        System.out.println("Снимем со стека");
         System.out.println(stack.pop());
-        stack.printme();
+        stack.printMe();
     }
 
     public static class Stack {
@@ -68,7 +68,7 @@ public class Main {
             return value;
         }
 
-        public void printme() {
+        public void printMe() {
             if (head == null) {
                 System.out.println("EMPTY");
             } else {
@@ -83,6 +83,10 @@ public class Main {
                 System.out.println();
             }
         }
+        // Долго мучился, так и не получил желаемого результата, сделал так как представлено ниже, используя вспомогательный метод вставки в конец,
+        // не смог разобаться с вариантом представленным в задании, в описании вспомогательный метод  reversed_head(node): принимает стек, а в псевдокоде
+        // он принимает node, в общем не понятно, если можно пришлите в личку или еще куда-нибудь ссылку или скриншот на правильный вариант реализации
+        // я очень хочу посмотреть правильный ответ. Или подскажите... Спасибо, хорошего времени суток.)
         private void reverse (Stack stack) {
             if (stack.head == null) {
                 return;
